@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Flowgistics\Pushctl;
 
+use Illuminate\Contracts\Config\Repository;
+use Illuminate\Http\Client\Factory;
 use Illuminate\Support\ServiceProvider;
 
 class PushctlServiceProvider extends ServiceProvider
@@ -15,7 +17,16 @@ class PushctlServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/../config/pushctl-laravel-sdk.php', 'pushctl-laravel-sdk');
 
-        $this->app->singleton(Pushctl::class);
+        $this->app->singleton(Pushctl::class, function (): Pushctl {
+            $config = $this->app->make(Repository::class);
+
+            return new Pushctl(
+                http: $this->app->make(Factory::class),
+                url: (string) $config->get('pushctl-laravel-sdk.url', ''),
+                token: (string) $config->get('pushctl-laravel-sdk.token', ''),
+                timeout: (int) $config->get('pushctl-laravel-sdk.timeout', 10),
+            );
+        });
     }
 
     /**

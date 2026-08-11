@@ -36,7 +36,69 @@ php artisan vendor:publish --tag="pushctl-laravel-sdk-config"
 
 ## Usage
 
-<!-- Add a basic usage example here. -->
+Configure the Pushctl API URL and an application token with the
+`notifications:send` ability:
+
+```dotenv
+PUSHCTL_URL=https://your-pushctl-host.example
+PUSHCTL_TOKEN=your-application-token
+```
+
+Add the Pushctl channel to a Laravel notification and return a fluent message
+from `toPushctl`:
+
+```php
+use Flowgistics\Pushctl\Channels\PushctlChannel;
+use Flowgistics\Pushctl\Messages\PushctlMessage;
+use Illuminate\Notifications\Notification;
+
+final class OrderReady extends Notification
+{
+    public function __construct(private readonly Order $order) {}
+
+    public function via(object $notifiable): array
+    {
+        return [PushctlChannel::class];
+    }
+
+    public function toPushctl(object $notifiable): PushctlMessage
+    {
+        return PushctlMessage::create('Order ready', 'Your order is ready for collection.')
+            ->actionUrl("myapp://orders/{$this->order->id}")
+            ->with('order_id', $this->order->id)
+            ->ttl(3600)
+            ->priority('high')
+            ->collapseId("order-{$this->order->id}");
+    }
+}
+```
+
+Route a notifiable model to its external Pushctl user ID. An array may be
+returned when one notification should target multiple external users.
+
+```php
+use Illuminate\Notifications\Notification;
+
+public function routeNotificationForPushctl(Notification $notification): string|array
+{
+    return $this->pushctl_user_id;
+}
+```
+
+Pushctl supports visible and data-only messages. The builder also provides
+`imageUrl`, `data`, `sound`, `badge`, `androidChannelId`, `iosCategory`, `ios`,
+`android`, and `idempotencyKey` methods.
+
+Messages can also be sent directly:
+
+```php
+use Flowgistics\Pushctl\Pushctl;
+
+app(Pushctl::class)->send(
+    PushctlMessage::create('Hello')->with('context', 'welcome'),
+    ['external-user-1', 'external-user-2'],
+);
+```
 
 ## Changelog
 

@@ -24,7 +24,11 @@ Use this skill when a Laravel application needs to integrate the Pushctl Laravel
 
 ### 2. Apply the package's public API
 
-Document how to integrate Pushctl Laravel Sdk here, replacing this placeholder with the integration steps for your package.
+- configure `PUSHCTL_URL` and `PUSHCTL_TOKEN`
+- return `Flowgistics\Pushctl\Channels\PushctlChannel::class` from the notification's `via` method
+- return a `Flowgistics\Pushctl\Messages\PushctlMessage` from `toPushctl`
+- expose the external user ID from `routeNotificationForPushctl` on the notifiable
+- use `Flowgistics\Pushctl\Pushctl::send` only when sending outside Laravel's notification system
 
 ## Rules, References, and Templates
 
@@ -34,8 +38,22 @@ Read before executing:
 
 ## Examples
 
-- describe a representative integration scenario for Pushctl Laravel Sdk
+```php
+public function via(object $notifiable): array
+{
+    return [PushctlChannel::class];
+}
+
+public function toPushctl(object $notifiable): PushctlMessage
+{
+    return PushctlMessage::create('Order ready', 'Your order is ready.')
+        ->actionUrl("myapp://orders/{$this->orderId}")
+        ->with('order_id', $this->orderId)
+        ->priority('high');
+}
+```
 
 ## Anti-patterns
 
 - do not document package internals here; keep the skill focused on adoption in Laravel apps
+- do not send provider device tokens; Pushctl routes notifications by the application's external user IDs

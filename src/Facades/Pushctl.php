@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Flowgistics\Pushctl\Facades;
+namespace Pushctl\PushctlLaravel\Facades;
 
-use Flowgistics\Pushctl\Messages\PushctlMessage;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Facade;
+use Pushctl\PushctlLaravel\Messages\PushctlMessage;
 
 /**
  * @method static Response send(PushctlMessage $message, string|array<mixed> $recipients)
  *
- * @see \Flowgistics\Pushctl\Pushctl
+ * @see \Pushctl\PushctlLaravel\Pushctl
  */
 class Pushctl extends Facade
 {
     protected static function getFacadeAccessor(): string
     {
-        return \Flowgistics\Pushctl\Pushctl::class;
+        return \Pushctl\PushctlLaravel\Pushctl::class;
     }
 }

@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-use Flowgistics\Pushctl\Channels\PushctlChannel;
-use Flowgistics\Pushctl\Messages\PushctlMessage;
-use Flowgistics\Pushctl\Pushctl;
 use Illuminate\Http\Client\Request;
 use Illuminate\Notifications\AnonymousNotifiable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Notification as NotificationFacade;
+use Pushctl\PushctlLaravel\Channels\PushctlChannel;
+use Pushctl\PushctlLaravel\Messages\PushctlMessage;
+use Pushctl\PushctlLaravel\Pushctl;
 
 it('resolves the singleton', function () {
     expect(app(Pushctl::class))->toBeInstanceOf(Pushctl::class);
@@ -20,12 +20,12 @@ it('returns the same instance from the container', function () {
 });
 
 it('merges the package config', function () {
-    expect(config('pushctl-laravel-sdk.timeout'))->toBe(10);
+    expect(config('pushctl.timeout'))->toBe(10);
 });
 
 it('sends Laravel notifications through Pushctl', function () {
-    config()->set('pushctl-laravel-sdk.url', 'https://pushctl.example');
-    config()->set('pushctl-laravel-sdk.token', 'secret-token');
+    config()->set('pushctl.url', 'https://pushctl.example');
+    config()->set('pushctl.token', 'secret-token');
 
     Http::fake([
         'pushctl.example/*' => Http::response([

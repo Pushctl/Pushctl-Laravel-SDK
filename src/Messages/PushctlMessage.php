@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Flowgistics\Pushctl\Messages;
+namespace Pushctl\PushctlLaravel\Messages;
 
 use InvalidArgumentException;
 

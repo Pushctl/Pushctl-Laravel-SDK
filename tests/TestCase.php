@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Flowgistics\Pushctl\Tests;
+namespace Pushctl\PushctlLaravel\Tests;
 
-use Flowgistics\Pushctl\PushctlServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
+use Pushctl\PushctlLaravel\PushctlServiceProvider;
 
 abstract class TestCase extends Orchestra
 {

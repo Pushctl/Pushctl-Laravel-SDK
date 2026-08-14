@@ -6,7 +6,7 @@ use Illuminate\Support\Env;
 
 return [
 
-    'url' => Env::get('PUSHCTL_URL'),
+    'url' => Env::get('PUSHCTL_URL', 'https://pushctl.com'),
 
     'token' => Env::get('PUSHCTL_TOKEN'),
 

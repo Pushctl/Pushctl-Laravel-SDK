@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Flowgistics\Pushctl;
+namespace Pushctl\PushctlLaravel;
 
-use Flowgistics\Pushctl\Messages\PushctlMessage;
 use Illuminate\Http\Client\Factory;
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Http\Client\Response;
 use InvalidArgumentException;
 use LogicException;
+use Pushctl\PushctlLaravel\Messages\PushctlMessage;
 
 final readonly class Pushctl
 {

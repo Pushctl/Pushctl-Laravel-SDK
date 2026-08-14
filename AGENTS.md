@@ -5,7 +5,7 @@ This repository is a Laravel package. Keep the package focused, idiomatic, and e
 ## Package Conventions
 
 - Use Laravel-native package APIs and the existing service provider shape before adding abstractions.
-- Keep package names, namespaces, Composer metadata, publish tags, documentation, and examples aligned with `flowgistics/pushctl-laravel-sdk`.
+- Keep package names, namespaces, Composer metadata, publish tags, documentation, and examples aligned with `pushctl/pushctl-laravel`.
 - Add only the files and dependencies needed for the package behavior being implemented.
 - Prefer explicit Laravel package code over helper abstractions unless the extension point is real.
 - Keep tests focused on observable package behavior through public APIs, service provider wiring, commands, routes, published resources, and documentation promises.

@@ -1,10 +1,10 @@
 ---
-name: pushctl-laravel-sdk-development
+name: pushctl-laravel-development
 description: >
   Configure and apply the Pushctl Laravel Sdk package in Laravel applications.
 license: MIT
 metadata:
-  author: Flowgistics
+  author: Pushctl
 ---
 
 # Pushctl Laravel Sdk
@@ -13,7 +13,7 @@ Use this skill when a Laravel application needs to integrate the Pushctl Laravel
 
 ## Primary Goal
 
-- apply the `flowgistics/pushctl-laravel-sdk` package's public API in the smallest correct way
+- apply the `pushctl/pushctl-laravel` package's public API in the smallest correct way
 
 ## Workflow
 
@@ -25,10 +25,10 @@ Use this skill when a Laravel application needs to integrate the Pushctl Laravel
 ### 2. Apply the package's public API
 
 - configure `PUSHCTL_URL` and `PUSHCTL_TOKEN`
-- return `Flowgistics\Pushctl\Channels\PushctlChannel::class` from the notification's `via` method
-- return a `Flowgistics\Pushctl\Messages\PushctlMessage` from `toPushctl`
+- return `Pushctl\PushctlLaravel\Channels\PushctlChannel::class` from the notification's `via` method
+- return a `Pushctl\PushctlLaravel\Messages\PushctlMessage` from `toPushctl`
 - expose the external user ID from `routeNotificationForPushctl` on the notifiable
-- use `Flowgistics\Pushctl\Pushctl::send` only when sending outside Laravel's notification system
+- use `Pushctl\PushctlLaravel\Pushctl::send` only when sending outside Laravel's notification system
 
 ## Rules, References, and Templates
 

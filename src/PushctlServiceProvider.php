@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Flowgistics\Pushctl;
+namespace Pushctl\PushctlLaravel;
 
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Http\Client\Factory;
@@ -15,16 +15,16 @@ class PushctlServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/pushctl-laravel-sdk.php', 'pushctl-laravel-sdk');
+        $this->mergeConfigFrom(__DIR__.'/../config/pushctl.php', 'pushctl');
 
         $this->app->singleton(Pushctl::class, function (): Pushctl {
             $config = $this->app->make(Repository::class);
 
             return new Pushctl(
                 http: $this->app->make(Factory::class),
-                url: (string) $config->get('pushctl-laravel-sdk.url', ''),
-                token: (string) $config->get('pushctl-laravel-sdk.token', ''),
-                timeout: (int) $config->get('pushctl-laravel-sdk.timeout', 10),
+                url: (string) $config->get('pushctl.url', ''),
+                token: (string) $config->get('pushctl.token', ''),
+                timeout: (int) $config->get('pushctl.timeout', 10),
             );
         });
     }
@@ -39,7 +39,7 @@ class PushctlServiceProvider extends ServiceProvider
         }
 
         $this->publishes([
-            __DIR__.'/../config/pushctl-laravel-sdk.php' => config_path('pushctl-laravel-sdk.php'),
-        ], ['pushctl-laravel-sdk', 'pushctl-laravel-sdk-config']);
+            __DIR__.'/../config/pushctl.php' => config_path('pushctl.php'),
+        ], ['pushctl', 'pushctl-config']);
     }
 }

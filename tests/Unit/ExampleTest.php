@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Flowgistics\Pushctl\Messages\PushctlMessage;
+use Pushctl\PushctlLaravel\Messages\PushctlMessage;
 
 it('builds the complete Pushctl API payload', function () {
     $message = PushctlMessage::create()

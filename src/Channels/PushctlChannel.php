@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Flowgistics\Pushctl\Channels;
+namespace Pushctl\PushctlLaravel\Channels;
 
-use Flowgistics\Pushctl\Messages\PushctlMessage;
-use Flowgistics\Pushctl\Pushctl;
 use Illuminate\Http\Client\Response;
 use Illuminate\Notifications\Notification;
 use LogicException;
+use Pushctl\PushctlLaravel\Messages\PushctlMessage;
+use Pushctl\PushctlLaravel\Pushctl;
 
 final readonly class PushctlChannel
 {

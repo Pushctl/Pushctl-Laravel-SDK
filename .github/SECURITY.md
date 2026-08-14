@@ -8,4 +8,4 @@ Only the latest major version receives security fixes.
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability within Pushctl Laravel Sdk, please send an email to Flowgistics at hello@flowgistics.nl. All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within Pushctl Laravel Sdk, please send an email to Pushctl at hello@pushctl.nl. All security vulnerabilities will be promptly addressed.

@@ -7,7 +7,7 @@
     "pushctl",
     "pushctl-laravel"
   ],
-  "homepage": "https://github.com/pushctl/pushctl-laravel",
+  "homepage": "https://github.com/Pushctl/Pushctl-Laravel-SDK",
   "license": "MIT",
   "authors": [
     {
@@ -94,10 +94,10 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Pushctl\\Pushctl\\PushctlServiceProvider"
+        "Pushctl\\PushctlLaravel\\PushctlServiceProvider"
       ],
       "aliases": {
-        "Pushctl": "Pushctl\\Pushctl\\Facades\\Pushctl"
+        "Pushctl": "Pushctl\\PushctlLaravel\\Facades\\Pushctl"
       }
     }
   },

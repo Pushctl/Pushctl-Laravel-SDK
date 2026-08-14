@@ -3,11 +3,11 @@
 </div>
 
 <p align="center">
-    <a href="https://packagist.org/packages/pushctl/pushctl-laravel"><img src="https://img.shields.io/packagist/v/pushctl/pushctl.svg?style=flat-square" alt="Packagist"></a>
-    <a href="https://packagist.org/packages/pushctl/pushctl-laravel"><img src="https://img.shields.io/packagist/php-v/pushctl/pushctl.svg?style=flat-square" alt="PHP from Packagist"></a>
+    <a href="https://packagist.org/packages/pushctl/pushctl-laravel"><img src="https://img.shields.io/packagist/v/pushctl/pushctl-laravel.svg?style=flat-square" alt="Packagist"></a>
+    <a href="https://packagist.org/packages/pushctl/pushctl-laravel"><img src="https://img.shields.io/packagist/php-v/pushctl/pushctl-laravel.svg?style=flat-square" alt="PHP from Packagist"></a>
     <a href="https://packagist.org/packages/pushctl/pushctl-laravel"><img src="https://badge.laravel.cloud/badge/pushctl/pushctl-laravel?style=flat" alt="Laravel versions"></a>
-    <a href="https://github.com/pushctl/pushctl-laravel/actions"><img alt="GitHub Workflow Status (main)" src="https://img.shields.io/github/actions/workflow/status/pushctl/pushctl-laravel/tests.yml?branch=main&label=Tests&style=flat-square"></a>
-    <a href="https://packagist.org/packages/pushctl/pushctl-laravel"><img src="https://img.shields.io/packagist/dt/pushctl/pushctl.svg?style=flat-square" alt="Total Downloads"></a>
+    <a href="https://github.com/Pushctl/Pushctl-Laravel-SDK/actions"><img alt="GitHub Workflow Status (master)" src="https://img.shields.io/github/actions/workflow/status/Pushctl/Pushctl-Laravel-SDK/tests.yml?branch=master&label=Tests&style=flat-square"></a>
+    <a href="https://packagist.org/packages/pushctl/pushctl-laravel"><img src="https://img.shields.io/packagist/dt/pushctl/pushctl-laravel.svg?style=flat-square" alt="Total Downloads"></a>
 </p>
 
 Push notifications for developers
